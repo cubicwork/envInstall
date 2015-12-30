@@ -55,8 +55,6 @@ if [ x$REPLY == xyes ];then
 	tar -xf $N_tiff
 	tar -xf $N_yasm
 	tar -xf $N_zlib
-	sleep 3
-	yum -y install bash-completion vim net-tools bind-utils wget screen
 	echo -e "\033[32m[4/4]:reboot server\033[0m"
 	sleep 3
 	reboot
