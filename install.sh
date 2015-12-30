@@ -189,20 +189,26 @@ if [ x$REPLY == xyes ];then
 	cd ../$N_mariadb
 	pwd
 	sleep 3
-	cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql -DMYSQL_DATADIR=/data/mysql -DSYSCONFDIR=/etc && make && make install
+	cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql -DMYSQL_DATADIR=/mysqldata/ -DSYSCONFDIR=/etc -DWITH_INNOBASE_STORAGE_ENGINE=1 -DWITH_ARCHIVE_STPRAGE_ENGINE=1 -DWITH_BLACKHOLE_STORAGE_ENGINE=1 -DWIYH_READLINE=1 -DWIYH_SSL=system -DVITH_ZLIB=system -DWITH_LOBWRAP=0 -DMYSQL_UNIX_ADDR=/tmp/mysql.sock -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci
+  make && make install
+  echo -e "\033[31mSetup init.d script\033[0m"
+  chown -R mysql:mysql /usr/local/mysql
+	cp /usr/local/mysql/support-files/mysql.server /etc/rc.d/init.d/mysqld && chmod 755 /etc/init.d/mysqld && chkconfig --add mysqld && chkconfig mysqld on
 	echo -e "\033[31mInitailize MariaDB\033[0m"
 	/usr/local/mysql/scripts/mysql_install_db --user=mysql --basedir=/usr/local/mysql --datadir=/data/mysql
 	echo -e "\033[31mSet configfile\033[0m"
-	ln -s /usr/local/mysql/my.cnf /etc/my.cnf
-	echo -e "\033[31mSetup init.d script\033[0m"
-	cp /usr/local/mysql/support-files/mysql.server /etc/rc.d/init.d/mysqld && chmod 755 /etc/init.d/mysqld && chkconfig mysqld on
+	cp -f ../misc/my.cnf-patch /etc/my.cnf
 	echo -e "\033[31mAdd bin to system path\033[0m"
-	echo 'export PATH=$PATH:/usr/local/mysql/bin'>>/etc/profile && source /etc/profile
-	echo -e "\033[32m>>>Set MariaDB\033[0m"
-	/usr/local/mysql/bin/mysql_secure_installation
+	echo 'export PATH=/usr/local/mysql/bin:$PATH' > /etc/profile.d/mysql.sh
+  mkdir /var/log/mariadb/
+  chown -R mysql:mysql /var/log/mariadb/
+  echo -e "\033[32mStart MariaDB\033[0m"
+	service mysqld start
 	echo -e "\033[31mSet links for PHP\033[0m"
 	ln -s /usr/local/mysql/lib/mysql /usr/lib/mysql && ln -s /usr/local/mysql/include/mysql /usr/include/mysql && mkdir /var/lib/mysql && ln -s /tmp/mysql.sock /var/lib/mysql/mysql.sock
-	read -p "Press <RETURN> to go on..."
+  echo -e "\033[32m>>>Set MariaDB\033[0m"
+	/usr/local/mysql/bin/mysql_secure_installation
+  read -p "Press <RETURN> to go on..."
 #install php
 	echo -e "\033[32m[20/20]:install PHP\033[0m"
 	cd ../$N_php
