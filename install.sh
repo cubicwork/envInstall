@@ -178,7 +178,6 @@ if [ x$REPLY == xyes ];then
 	cp -f ../misc/nginx.init /etc/rc.d/init.d/nginx
 	echo -e "\033[31mSetup test html page\033[0m"
 	cp -f ../misc/test.html /data/www/index.htm
-	chown -R nginx:nginx /data/www
 	echo -e "\033[31mAdd sbin to system path\033[0m"
 	echo 'export PATH=$PATH:/usr/local/nginx/sbin'>>/etc/profile && source /etc/profile
 	echo -e "\033[31mStart nginx\033[0m"
@@ -284,6 +283,7 @@ if [ x$REPLY == xyes ];then
 	service nginx restart
 	echo -e "\033[31mSetup test html page\033[0m"
 	cp -f ../misc/info.php /data/www/info.php
+  chown -R nginx:nginx /data/www
 #installation finished
 	echo -e "\033[32minstallation finished!\033[0m"
 	read -p "Press <RETURN> to reboot this server..."
