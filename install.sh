@@ -225,47 +225,41 @@ if [ x$REPLY == xyes ];then
 	./configure \
 	--prefix=/usr/local/php \
 	--with-config-file-path=/usr/local/php/etc \
-	--with-mysqli=/usr/local/mysql/bin/mysql_config \
-	--with-mysql-sock=/tmp/mysql.sock \
-	--with-pdo-mysql=/usr/local/mysql \
-	--with-gd \
-	--with-png-dir=/usr/local/libpng \
-	--with-jpeg-dir=/usr/local/jpeg \
-	--with-freetype-dir=/usr/local/freetype \
-	--with-xpm-dir=/usr/ \
-	--with-zlib-dir=/usr/local/zlib \
-	--with-mhash \
-	--with-openssl \
-	--with-iconv \
-	--with-zlib \
-	--enable-zip \
-	--enable-inline-optimization \
-	--disable-debug \
-	--disable-rpath \
-	--enable-shared \
-	--enable-xml \
-	--enable-bcmath \
-	--enable-shmop \
-	--enable-sysvsem \
-	--enable-mbregex \
-	--enable-mbstring \
-	--enable-ftp \
-	--enable-gd-native-ttf \
-	--enable-pcntl \
-	--enable-sockets \
-	--with-xmlrpc \
-	--enable-soap \
-	--without-pear \
-	--with-gettext \
-	--enable-session \
-	--with-curl \
-	--enable-opcache \
-	--enable-fpm \
-	--with-fpm-user=nginx \
-	--with-fpm-group=nginx \
-	--enable-cgi \
-	--without-gdbm \
-	--disable-fileinfo
+  --enable-fpm \
+  --with-fpm-user=nginx \
+  --with-fpm-group=nginx \
+  --enable-bcmath \
+  --enable-calendar \
+  --with-curl \
+  --enable-dba \
+  --enable-exif \
+  --enable-ftp \
+  --with-gd \
+  --with-jpeg-dir=/usr/local/jpeg \
+  --with-png-dir=/usr/local/libpng \
+  --with-zlib-dir=/usr/local/zlib \
+  --with-xpm-dir=/usr/ \
+  --with-freetype-dir=/usr/local/freetype \
+  --enable-gd-native-ttf \
+  --enable-gd-jis-conv \
+  --with-gettext \
+  --with-mhash \
+  --with-openssl-dir=/usr/local/openssl \
+  --enable-mbstring \
+  --with-mysqli=/usr/local/mysql/bin/mysql_config \
+  --with-mysql-sock=/tmp/mysql.sock \
+  --enable-pcntl \
+  --with-pdo-mysql=/usr/local/mysql \
+  --enable-shmop \
+  --enable-soap \
+  --with-xmlrpc \
+  --enable-sockets \
+  --enable-sysvmsg \
+  --enable-sysvsem \
+  --enable-sysvshm \
+  --enable-zip \
+  --enable-mysqlnd \
+  --with-pear
 	make && make install
 	echo -e "\033[31mAdd bin to system path\033[0m"
 	echo 'export PATH=$PATH:/usr/local/php/bin' >> /etc/profile && source /etc/profile
