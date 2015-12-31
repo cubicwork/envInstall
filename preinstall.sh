@@ -34,7 +34,7 @@ if [ x$REPLY == xyes ];then
 	yum makecache && yum -y update
 	echo -e "\033[32m[2/4]:install basic tools\033[0m"
 	sleep 3
-	yum -y install bash-completion vim net-tools bind-utils wget screen
+	yum -y install bash-completion vim net-tools bind-utils wget screen bzip2
 	echo -e "\033[32m[3/4]:unzip archive files\033[0m"
 	tar -xf $N_automake115
 	tar -xf $N_automake17
