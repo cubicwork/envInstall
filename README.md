@@ -15,15 +15,15 @@ EnvInstall was used for building server environment. After you have a minimum in
 		$ mkdir ~/env
 		$ cd ~/env
 		$ yum install -y wget unzip
-		$ wget https://github.com/cubicwork/envInstall/archive/master.zip
+		$ wget https://github.com/cubicwork/envInstall/archive/alpha-stable.zip
 	2. Unzip archive
-		$ unzip envInstall-master.zip
+		$ unzip envInstall-alpha-stable.zip
 	3. Execute preinstall.sh
-		$ cd envInstall-master
+		$ cd envInstall-alpha-stable
 		# chmod +x preinstall.sh
 		# ./preinstall.sh
 	4.	Excute install.sh
-		# cd ~/env/envInstall-master
+		# cd ~/env/envInstall-alpha-stable
 		#./install.sh
 # Tips
 	1. Both preinstall.sh and install.sh should be execute by root.
