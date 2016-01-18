@@ -16,7 +16,7 @@ N_mariadb=mariadb-10.1.10
 N_nginx=nginx-1.8.0
 N_openssl=openssl-1.0.2e
 N_pcre=pcre-8.37
-N_php=php-7.0.1
+N_php=php-7.0.2
 N_sphinx=sphinx-2.2.10-release
 N_t1lib=t1lib-5.1.2
 N_tiff=tiff-4.0.6
@@ -224,41 +224,42 @@ if [ x$REPLY == xyes ];then
 	./configure \
 	--prefix=/usr/local/php \
 	--with-config-file-path=/usr/local/php/etc \
-  --enable-fpm \
-  --with-fpm-user=nginx \
-  --with-fpm-group=nginx \
-  --enable-bcmath \
-  --enable-calendar \
-  --with-curl \
-  --enable-dba \
-  --enable-exif \
-  --enable-ftp \
-  --with-gd \
-  --with-jpeg-dir=/usr/local/jpeg \
-  --with-png-dir=/usr/local/libpng \
-  --with-zlib-dir=/usr/local/zlib \
-  --with-xpm-dir=/usr/ \
-  --with-freetype-dir=/usr/local/freetype \
-  --enable-gd-native-ttf \
-  --enable-gd-jis-conv \
-  --with-gettext \
-  --with-mhash \
-  --with-openssl-dir=/usr/local/openssl \
-  --enable-mbstring \
-  --with-mysqli=/usr/local/mysql/bin/mysql_config \
-  --with-mysql-sock=/tmp/mysql.sock \
-  --enable-pcntl \
-  --with-pdo-mysql=/usr/local/mysql \
-  --enable-shmop \
-  --enable-soap \
-  --with-xmlrpc \
-  --enable-sockets \
-  --enable-sysvmsg \
-  --enable-sysvsem \
-  --enable-sysvshm \
-  --enable-zip \
-  --enable-mysqlnd \
-  --with-pear
+	--enable-fpm \
+	--with-fpm-user=nginx \
+	--with-fpm-group=nginx \
+	--enable-bcmath \
+	--enable-calendar \
+	--with-curl \
+	--enable-dba \
+	--enable-exif \
+	--enable-ftp \
+	--with-gd \
+	--with-jpeg-dir=/usr/local/jpeg \
+	--with-png-dir=/usr/local/libpng \
+	--with-zlib-dir=/usr/local/zlib \
+	--with-xpm-dir=/usr/ \
+	--with-freetype-dir=/usr/local/freetype \
+	--with-openssl \
+	--enable-gd-native-ttf \
+	--enable-gd-jis-conv \
+	--with-gettext \
+	--with-mhash \
+	--with-openssl-dir=/usr/local/openssl \
+	--enable-mbstring \
+	--with-mysqli=/usr/local/mysql/bin/mysql_config \
+	--with-mysql-sock=/tmp/mysql.sock \
+	--enable-pcntl \
+	--with-pdo-mysql=/usr/local/mysql \
+	--enable-shmop \
+	--enable-soap \
+	--with-xmlrpc \
+	--enable-sockets \
+	--enable-sysvmsg \
+	--enable-sysvsem \
+	--enable-sysvshm \
+	--enable-zip \
+	--enable-mysqlnd \
+	--with-pear
 	make && make install
 	echo -e "\033[31mAdd bin to system path\033[0m"
 	echo 'export PATH=$PATH:/usr/local/php/bin' >> /etc/profile && source /etc/profile
