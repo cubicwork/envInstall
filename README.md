@@ -10,6 +10,7 @@ EnvInstall was used for building server environment. After you have a minimum in
 # System requirement
 	1. A operate system with upstream source from RHEL 7. e.g. RHEL 7, CentOS 7, Scientific Linux 7 etc.
 	2. Minimum installation at least.
+	3. 2 GB swap space requird.
 # How to use
 	1. Download envInstall to your server.
 		$ mkdir ~/env
@@ -29,5 +30,3 @@ EnvInstall was used for building server environment. After you have a minimum in
 	1. Both preinstall.sh and install.sh should be execute by root.
 	2. Server will reboot after shell script executed.
 	3. The library pack in zip archive can be download and replaced.
-		
-		
