@@ -33,7 +33,7 @@ if [ x$REPLY == xyes ];then
 #yum packages
 	echo -e "\033[32m[1/20]:install basic package\033[0m"
 	sleep 3
-	yum install -y apr* autoconf automake bison bzip2* cloog-ppl compat* cpp curl curl-devel fontconfig fontconfig-devel freetype freetype* freetype-devel gcc gcc-c++ gtk+-devel gd gettext gettext-devel glibc kernel kernel-headers keyutils keyutils-libs-devel krb5-devel libcom_err-devel libpng libpng-devel libjpeg* libsepol-devel libselinux-devel libstdc++-devel libtool* libgomp libxml2 libxml2-devel libXpm* libtiff libtiff* make mpfr ncurses* ntp openssl openssl-devel patch pcre-devel perl php-common php-gd policycoreutils telnet t1lib t1lib* nasm nasm* zlib-devel gd-devel postgresql-libs unixODBC
+	yum install -y apr* autoconf automake bison bzip2* cloog-ppl compat* cpp curl curl-devel fontconfig fontconfig-devel freetype freetype* freetype-devel gcc gcc-c++ gtk+-devel gd gettext gettext-devel glibc kernel kernel-headers keyutils keyutils-libs-devel krb5-devel libcom_err-devel libpng libpng-devel libjpeg* libsepol-devel libselinux-devel libstdc++-devel libtool* libgomp libxml2 libxml2-devel libXpm* libtiff libtiff* make mpfr ncurses* ntp openssl openssl-devel patch pcre-devel perl php-common php-gd policycoreutils telnet t1lib t1lib* nasm nasm* zlib-devel gd-devel postgresql-libs unixODBC libXaw-devel
 	read -p "Press <RETURN> to go on..."
 #add useraccounts and groups
 	echo -e "\033[32m[2/20]:create account and root for nginx, mariaDB and php-fpm | Create data directory\033[0m"
