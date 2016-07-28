@@ -102,7 +102,7 @@ if [ x$REPLY == xyes ];then
 	cd ../$N_libmcrypt
 	pwd
 	sleep 3
-	./configure && make && make install
+	./configure --disable-posix-threads && make && make install
 	read -p "Press <RETURN> to go on..."
 #install libvpx
 	echo -e "\033[32m[11/20]:install libvpx\033[0m"
@@ -246,6 +246,7 @@ if [ x$REPLY == xyes ];then
 	--with-mhash \
 	--with-openssl-dir=/usr/local/openssl \
 	--enable-mbstring \
+	--with-mcrypt \
 	--with-mysqli=/usr/local/mysql/bin/mysql_config \
 	--with-mysql-sock=/tmp/mysql.sock \
 	--enable-pcntl \
