@@ -170,7 +170,8 @@ if [ x$REPLY == xyes ];then
 	--with-http_gzip_static_module \
 	--with-http_stub_status_module \
 	--with-http_sub_module \
-	--with-http_gzip_static_module
+	--with-http_gzip_static_module \
+	--with-ipv6
 	make && make install
 	echo -e "\033[31mModifying /usr/local/nginx/conf/nginx.conf\033[0m"
 	cp -f ../misc/nginx.conf-patch /usr/local/nginx/conf/nginx.conf
